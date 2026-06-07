@@ -1,3 +1,4 @@
+# Import functools.wraps to preserve the original function name and docstring.
 import functools
 
 def changecase(func):
