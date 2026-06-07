@@ -6,12 +6,12 @@ Imagine you have a gift 🎁, the gift it self is the function.
 The wrapping paper and the ribbon 🎀 are the decorator.
 When you add a decorator, you didn't change the gift inside, but you add something new around it, like colorful or a bow.
 
-## Practical use cases for decorators:
+### Practical use cases for decorators:
 They are often used in scenarios such as logging, authentication and memorization, enforcing access control, caching results, and measuring execution time.
 
 ## How they works? 📌
 Define the decorator first, then apply it with @decorator_name above the function.
-## Custom decorators:
+### Custom decorators:
 Custom decorators are written by defining a function that takes another function as an argument, defines a nested wrapper function, and returns the wrapper.
 
 ### Example:
@@ -33,10 +33,35 @@ HELLO SALLY
 By placing @changecase directly above the function definition, the function myfunction is being decorated with the changecase function.
 The function changecase is the decorator, and the function myfunction is the function that gets decorated.
 
-## Multiple decorators:
-They can be applied to a single function by stacking them before the function definition.
+### Multiple decorators:
+🔶️ They can be applied to a single function by stacking them before the function definition.
 The order of decorators impacts the final output since each decorator wraps the next, influencing the behavior of the decorated function.
 see the code 👉 multiple_decorator_calls.py
 
-## Parametrized Decorators:
+🔶️ You can use multiple decorators on one function.
+
+This is done by placing the decorator calls on top of each other.
+Decorators are called in the reverse order, starting with the one closest to the function.
+
+Example
+One decorator for upper case, and one for adding a greeting:
+
+def changecase(func):
+  def myinner():
+    return func().upper()
+  return myinner
+
+def addgreeting(func):
+  def myinner():
+    return "Hello " + func() + " Have a good day!"
+  return myinner
+
+@changecase
+@addgreeting
+def myfunction():
+  return "Hez"
+
+print(myfunction())
+
+### Parametrized Decorators:
 Functions that require arguments can also be decorated, just make sure you pass the arguments to the wrapper function. see 👉  
