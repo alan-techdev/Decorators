@@ -5,17 +5,41 @@ It is a function that takes another function, it extends the behavior of functio
 Imagine you have a gift 🎁, the gift it self is the function.
 The wrapping paper and the ribbon 🎀 are the decorator.
 When you add a decorator, you didn't change the gift inside, but you add something new around it, like colorful or a bow.
-
+  
 ### Practical use cases for decorators:
 They are often used in scenarios such as logging, authentication and memorization, enforcing access control, caching results, and measuring execution time.
+
+* TODO : we need to find examples from open source libraries  like DJANGO, PYTEST or ??? ....
 
 ## How they works? 📌
 Define the decorator first, then apply it with @decorator_name above the function.
 ### Custom decorators:
 Custom decorators are written by defining a function that takes another function as an argument, defines a nested wrapper function, and returns the wrapper.
 
+### Build in decorators
+Python standard runtime library has build in decorators such as 
+``` @classmethod ``` ðŸ‘‰ ```src/buildin/a_classmethod.py``` <br>
+``` @abstractmethod ``` ðŸ‘‰ ```src/buildin/b_abstractmethod.py``` <br>
+``` @staticmethod ```   ðŸ‘‰ ```src/buildin/c_staticmethod.py``` <br>
+``` @atexit.register```   ðŸ‘‰ ```src/buildin/d_atexit_register.py``` <br>
+``` @typing.final ```   ðŸ‘‰ ```src/buildin/e_typing_final.py``` <br>
+``` @enum.unique ```   ðŸ‘‰ ```src/buildin/f_enum_unique.py``` <br>
+``` @property ```   ðŸ‘‰ ```src/buildin/h_property.py``` <br>
+``` @singledispatch ```   ðŸ‘‰ ```src/buildin/i_singledispatch.py``` <br>
+``` @lru_cache ```   ðŸ‘‰ ```src/buildin/j_lru_cache.py``` <br>
+``` @l@dataclasses  ```   ðŸ‘‰ ```src/buildin/k_dataclasses.py``` <br>
+
+```
+def decorator_function(func):
+     def inner_func():
+         return func() # invoke the input parameter which is a function reference 
+     return inner_func # return reference to the inner function
+
+```
+
 ### Example:
 A basic decorator that uppercases the return value of the decorated function:
+```
 def changecase(func):
     def myinner():
         return func().upper()
@@ -23,29 +47,30 @@ def changecase(func):
 
 @changecase
 def myfunction():
-    return "Hello Sally"
+    return "Hello Sherin"
 
 print(myfunction())
 
 Code excution result:
-HELLO SALLY
+HELLO SHERIN
+```
 
-By placing @changecase directly above the function definition, the function myfunction is being decorated with the changecase function.
-The function changecase is the decorator, and the function myfunction is the function that gets decorated.
+By placing ```@changecase``` directly above the function definition, the function ```myfunction``` is being decorated with the ```changecase``` function.
+The function ```changecase``` is the decorator, and the function ```myfunction``` is the function that gets decorated.
 
 ### Multiple decorators:
-🔶️ They can be applied to a single function by stacking them before the function definition.
+ðŸ”¶ï¸ They can be applied to a single function by stacking them before the function definition.
 The order of decorators impacts the final output since each decorator wraps the next, influencing the behavior of the decorated function.
-see the code 👉 multiple_decorator_calls.py
+ðŸ‘‰ ```src/multiple_decorator_calls.py```
 
-🔶️ You can use multiple decorators on one function.
+ðŸ”¶ï¸ You can use multiple decorators on one function.
 
 This is done by placing the decorator calls on top of each other.
 Decorators are called in the reverse order, starting with the one closest to the function.
 
-Example
+* More Example of double decorators
 One decorator for upper case, and one for adding a greeting:
-
+```
 def changecase(func):
   def myinner():
     return func().upper()
@@ -62,15 +87,18 @@ def myfunction():
   return "Hez"
 
 print(myfunction())
+```
 
 ### Parametrized Decorators:
-Functions that require arguments can also be decorated, just make sure you pass the arguments to the wrapper function. see 👉  parametrized_decorator.py
+Functions that require arguments can also be decorated, just make sure you pass the arguments to the wrapper function. 
+ðŸ‘‰  ```src/parametrized_decorator.py```
 
-### *args and **kwargs: 🖇
+### *args and **kwargs: ðŸ–‡
 Sometimes the decorator function has no control over the arguments passed from decorated function, to solve this problem, add (*args, **kwargs) to the wrapper function, this way the wrapper function can accept any number, and any type of arguments, and pass them to the decorated function.
 
 Example
 
+```
 def changecase(func):
   def myinner(*args, **kwargs):
     return func(*args, **kwargs).upper()
@@ -82,12 +110,15 @@ def myfunction(nam1, nam2):
 
 print(myfunction("Hez", "Heyv"))
 
+```
+
 ### Decorator With Arguments:
 Decorators can accept their own arguments by adding another wrapper level.
 
 Example
 A decorator factory that takes an argument and transforms the casing based on the argument value.
 
+```
 def changecase(n):
   def changecase(func):
     def myinner():
@@ -105,22 +136,28 @@ def myfunction():
 
 print(myfunction())
 
-### Preserving Function Metadata: 🛑
+```
+
+### Preserving Function Metadata: ðŸ›‘
 Functions in Python has metadata that can be accessed using the __name__ and __doc__ attributes.
 
 Example
 Normally, a function's name can be returned with the __name__ attribute:
 
+```
 def myfunction():
   return "Have a great day!"
 
 print(myfunction.__name__)
 
-👀 But, when a function is decorated, the metadata of the original function is lost.
+```
+
+ðŸ‘€ But, when a function is decorated, the metadata of the original function is lost.
 
 Example
 Try returning the name from a decorated function and you will not get the same result:
 
+```
 def changecase(func):
   def myinner():
     return func().upper()
@@ -132,6 +169,7 @@ def myfunction():
 
 print(myfunction.__name__)
 
-To fix this, Python has a built-in function 🥳 called functools.wraps that can be used to preserve the original function's name and docstring. see 👉 metadata_fix.py
+```
 
-
+To fix this, Python has a built-in function ðŸ¥³ called ```functools.wraps ``` that can be used to preserve the original function's name and docstring.<br> 
+ðŸ‘‰  ```src/metadata_fix.py```
