@@ -64,4 +64,43 @@ def myfunction():
 print(myfunction())
 
 ### Parametrized Decorators:
-Functions that require arguments can also be decorated, just make sure you pass the arguments to the wrapper function. see 👉  
+Functions that require arguments can also be decorated, just make sure you pass the arguments to the wrapper function. see 👉  parametrized_decorator.py
+
+### *args and **kwargs: 🖇
+Sometimes the decorator function has no control over the arguments passed from decorated function, to solve this problem, add (*args, **kwargs) to the wrapper function, this way the wrapper function can accept any number, and any type of arguments, and pass them to the decorated function.
+
+Example
+
+def changecase(func):
+  def myinner(*args, **kwargs):
+    return func(*args, **kwargs).upper()
+  return myinner
+
+@changecase
+def myfunction(nam1, nam2):
+  return "Hello " + nam1 + nam2
+
+print(myfunction("Hez", "Heyv"))
+
+### Decorator With Arguments:
+Decorators can accept their own arguments by adding another wrapper level.
+
+Example
+A decorator factory that takes an argument and transforms the casing based on the argument value.
+
+def changecase(n):
+  def changecase(func):
+    def myinner():
+      if n == 1:
+        a = func().lower()
+      else:
+        a = func().upper()
+      return a
+    return myinner
+  return changecase
+
+@changecase(1)
+def myfunction():
+  return "Hello Hez"
+
+print(myfunction())
