@@ -132,5 +132,6 @@ def myfunction():
 
 print(myfunction.__name__)
 
-To fix this, Python has a built-in function 🥳 called functools.wraps that can be used to preserve the original function's name and docstring.
+To fix this, Python has a built-in function 🥳 called functools.wraps that can be used to preserve the original function's name and docstring. see 👉 metadata_fix.py
+
 
