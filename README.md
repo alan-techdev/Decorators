@@ -9,7 +9,7 @@ When you add a decorator, you didn't change the gift inside, but you add somethi
 ## Practical use cases for decorators:
 They are often used in scenarios such as logging, authentication and memorization, enforcing access control, caching results, and measuring execution time.
 
-# How they works?
+## How they works?
 Define the decorator first, then apply it with @decorator_name above the function.
 ## Custom decorators:
 Custom decorators are written by defining a function that takes another function as an argument, defines a nested wrapper function, and returns the wrapper.
@@ -36,3 +36,4 @@ The function changecase is the decorator, and the function myfunction is the fun
 ## Multiple decorators:
 They can be applied to a single function by stacking them before the function definition.
 The order of decorators impacts the final output since each decorator wraps the next, influencing the behavior of the decorated function.
+see the code 
