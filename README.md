@@ -18,7 +18,22 @@ Custom decorators are written by defining a function that takes another function
 
 ### Build in decorators
 Python standard runtime library has build in decorators such as 
-``` @classmethod ``` ðŸ‘‰ ```src/buildin/a_classmethod.py``` <br>
+#### @classmethod
+@classmethod is used to create a method that works with the class instead of an object instance. A class method receives the class itself as the first argument using cls. It is commonly used to access class variables, create factory methods and perform operations related to the class.
+
+```class Car:
+    brand = "Toyota"
+
+    @classmethod
+    def show_brand(cls):
+        print(cls.brand)
+
+   Car.show_brand()```
+
+Output:
+Toyota
+cls.brand accesses the class variable brand directly using the class method.
+
 ``` @abstractmethod ``` ðŸ‘‰ ```src/buildin/b_abstractmethod.py``` <br>
 ``` @staticmethod ```   ðŸ‘‰ ```src/buildin/c_staticmethod.py``` <br>
 ``` @atexit.register```   ðŸ‘‰ ```src/buildin/d_atexit_register.py``` <br>
@@ -29,18 +44,14 @@ Python standard runtime library has build in decorators such as
 ``` @lru_cache ```   ðŸ‘‰ ```src/buildin/j_lru_cache.py``` <br>
 ``` @l@dataclasses  ```   ðŸ‘‰ ```src/buildin/k_dataclasses.py``` <br>
 
-```
-def decorator_function(func):
+```def decorator_function(func):
      def inner_func():
          return func() # invoke the input parameter which is a function reference 
-     return inner_func # return reference to the inner function
-
-```
+     return inner_func # return reference to the inner function ```
 
 ### Example:
 A basic decorator that uppercases the return value of the decorated function:
-```
-def changecase(func):
+```def changecase(func):
     def myinner():
         return func().upper()
     return myinner
@@ -52,8 +63,7 @@ def myfunction():
 print(myfunction())
 
 Code excution result:
-HELLO SHERIN
-```
+HELLO SHERIN```
 
 By placing ```@changecase``` directly above the function definition, the function ```myfunction``` is being decorated with the ```changecase``` function.
 The function ```changecase``` is the decorator, and the function ```myfunction``` is the function that gets decorated.
