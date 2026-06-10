@@ -23,5 +23,5 @@ class Demo:
     def show(cls):
         print(cls.name)
 
-Demo.show = classmethod(Demo.show)
+Demo.show = classmethod(Demo.show) # classmethod(Demo.show) converts the normal method show() into a class method.
 Demo.show()
