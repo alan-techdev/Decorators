@@ -1,17 +1,39 @@
 from abc import ABC, abstractmethod
 
-class Shape(ABC):
+class Vehicle(ABC):
+
     @abstractmethod
-    def area(self):
+    def go(self):
         pass
 
+    @abstractmethod
+    def stop(self):
+        pass
 
-class Square(Shape):
-    def __init__(self, side):
-        self.side = side
+class Car(Vehicle):
 
-    def area(self):
-      return self.side**2
+    def go(self):
+        print("You drive the car")
 
-square = Square(10)
-print(square.area())
+    def stop(self):
+        print("You stop the car")
+
+class Motorcycle(Vehicle):
+
+    def go(self):
+        print("You ride the motorcycle")
+
+    def stop(self):
+        print("You stop the motorcycle")
+
+class Boat(Vehicle):
+
+    def go(self):
+        print("You sail the boat")
+
+    def stop(self):
+        print("You anchor the boat")
+
+car = Car()
+motorcycle = Motorcycle()
+boat = Boat()
