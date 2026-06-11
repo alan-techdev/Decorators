@@ -21,20 +21,26 @@ Python standard runtime library has build in decorators such as
 #### @classmethod
 @classmethod is used to create a method that works with the class instead of an object instance. A class method receives the class itself as the first argument using cls. It is commonly used to access class variables, create factory methods and perform operations related to the class.
 
-```class Car:
+```
+class Car:
     brand = "Toyota"
 
     @classmethod
     def show_brand(cls):
         print(cls.brand)
 
-   Car.show_brand()```
+   Car.show_brand()
+```
 
 Output:
 Toyota
 cls.brand accesses the class variable brand directly using the class method.
 
-``` @abstractmethod ``` ðŸ‘‰ ```src/buildin/b_abstractmethod.py``` <br>
+### Abstract methods
+Are declared inside an Abstract class without any method definition. This method is meant to be implemented by the base class who implements the parent abstract class. The @abstractmethod decorator provided by abc module is used to implement abstract methods.
+
+
+
 ``` @staticmethod ```   ðŸ‘‰ ```src/buildin/c_staticmethod.py``` <br>
 ``` @atexit.register```   ðŸ‘‰ ```src/buildin/d_atexit_register.py``` <br>
 ``` @typing.final ```   ðŸ‘‰ ```src/buildin/e_typing_final.py``` <br>
