@@ -47,7 +47,7 @@ The function ```changecase``` is the decorator, and the function ```myfunction``
 
 ### Build in decorators:
 Python standard runtime library has build in decorators such as 📑
-#### @classmethod
+#### 1. @classmethod
 @classmethod is used to create a method that works with the class instead of an object instance. A class method receives the class itself as the first argument using cls. It is commonly used to access class variables, create factory methods and perform operations related to the class.
 
 ```
@@ -65,7 +65,7 @@ Output:
 Toyota
 cls.brand accesses the class variable brand directly using the class method.
 
-### @abstractmethods
+### 2. @abstractmethods
 Are declared inside an Abstract class without any method definition. This method is meant to be implemented by the base class who implements the parent abstract class. The @abstractmethod decorator provided by abc module is used to implement abstract methods.
 
 ```
@@ -87,7 +87,22 @@ square = Square(10)
 print(square.area())
 ```
 
-### @staticmethod
+### 3. @staticmethod
+A static method is a method which is bound to the class and NOT the object of the class. It used to create a static method. 
+
+#### Example:
+```
+class TestClass:
+  
+  @staticmethod
+  def test_static_method():
+    print("This is a static method")
+​
+TestClass.test_static_method()
+```
+Output:
+This is a static method
+
 
 ``` @atexit.register```   ðŸ‘‰ ```src/buildin/d_atexit_register.py``` <br>
 ``` @typing.final ```   ðŸ‘‰ ```src/buildin/e_typing_final.py``` <br>
