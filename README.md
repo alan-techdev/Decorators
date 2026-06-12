@@ -96,15 +96,32 @@ class TestClass:
   
   @staticmethod
   def test_static_method():
-    print("This is a static method")
+    print("Hello from static method")
 ​
 TestClass.test_static_method()
 ```
 Output:
-This is a static method
+Hello from static method
 
+### 4. @atexit.register
+The '@atexit.register' decorator is used to call the function when the program is exiting. The functionality is provided by the 'atexit' module. This function can be used to perform the clean-up tasks, before the program exits. Clean-ups are the tasks that have been done in order to release the resources such as opened files or database connections, that were being used during the program execution.
 
-``` @atexit.register```   ðŸ‘‰ ```src/buildin/d_atexit_register.py``` <br>
+#### Example:
+```
+import atexit
+​
+@atexit.register
+def person_exit_handler():
+  print("Bye, Sherin!")
+​
+print("Hello, Sherin!")
+
+Output:
+
+Hello, Sherin!
+Bye, Sherin!
+```
+
 ``` @typing.final ```   ðŸ‘‰ ```src/buildin/e_typing_final.py``` <br>
 ``` @enum.unique ```   ðŸ‘‰ ```src/buildin/f_enum_unique.py``` <br>
 ``` @property ```   ðŸ‘‰ ```src/buildin/h_property.py``` <br>
