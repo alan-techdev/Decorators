@@ -16,6 +16,35 @@ Define the decorator first, then apply it with @decorator_name above the functio
 ### Custom decorators:
 Custom decorators are written by defining a function that takes another function as an argument, defines a nested wrapper function, and returns the wrapper.
 
+```
+def decorator_function(func):
+     def inner_func():
+         return func() # invoke the input parameter which is a function reference 
+     return inner_func # return reference to the inner function
+```
+
+### Example:
+A basic decorator that uppercases the return value of the decorated function:
+```
+def changecase(func):
+    def myinner():
+        return func().upper()
+    return myinner
+
+@changecase
+def myfunction():
+    return "Hello Sherin"
+
+print(myfunction())
+
+Code excution result:
+HELLO SHERIN
+```
+
+By placing ```@changecase``` directly above the function definition, the function ```myfunction``` is being decorated with the ```changecase``` function.
+The function ```changecase``` is the decorator, and the function ```myfunction``` is the function that gets decorated.
+
+
 ### Build in decorators
 Python standard runtime library has build in decorators such as 
 #### @classmethod
@@ -39,7 +68,25 @@ cls.brand accesses the class variable brand directly using the class method.
 ### Abstract methods
 Are declared inside an Abstract class without any method definition. This method is meant to be implemented by the base class who implements the parent abstract class. The @abstractmethod decorator provided by abc module is used to implement abstract methods.
 
+```
+from abc import ABC, abstractmethod
 
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+
+class Square(Shape):
+    def __init__(self, side):
+        self.side = side
+
+    def area(self):
+      return self.side**2
+
+square = Square(10)
+print(square.area())
+```
 
 ``` @staticmethod ```   ðŸ‘‰ ```src/buildin/c_staticmethod.py``` <br>
 ``` @atexit.register```   ðŸ‘‰ ```src/buildin/d_atexit_register.py``` <br>
@@ -50,29 +97,6 @@ Are declared inside an Abstract class without any method definition. This method
 ``` @lru_cache ```   ðŸ‘‰ ```src/buildin/j_lru_cache.py``` <br>
 ``` @l@dataclasses  ```   ðŸ‘‰ ```src/buildin/k_dataclasses.py``` <br>
 
-```def decorator_function(func):
-     def inner_func():
-         return func() # invoke the input parameter which is a function reference 
-     return inner_func # return reference to the inner function ```
-
-### Example:
-A basic decorator that uppercases the return value of the decorated function:
-```def changecase(func):
-    def myinner():
-        return func().upper()
-    return myinner
-
-@changecase
-def myfunction():
-    return "Hello Sherin"
-
-print(myfunction())
-
-Code excution result:
-HELLO SHERIN```
-
-By placing ```@changecase``` directly above the function definition, the function ```myfunction``` is being decorated with the ```changecase``` function.
-The function ```changecase``` is the decorator, and the function ```myfunction``` is the function that gets decorated.
 
 ### Multiple decorators:
 ðŸ”¶ï¸ They can be applied to a single function by stacking them before the function definition.
