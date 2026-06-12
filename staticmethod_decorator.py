@@ -7,3 +7,10 @@ class Calc:
 ​
 res = Calc.add(2, 3) # It directly calls the method using the class name
 print(res)
+
+class Check:
+    @staticmethod
+    def is_even(n):
+        return n % 2 == 0
+
+print(Check.is_even(10))
