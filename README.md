@@ -112,8 +112,8 @@ import atexit
 ​
 @atexit.register
 def person_exit_handler():
-  print("Bye, Sherin!")
-​
+  print("Bye, Sherin!")  # The parameters are separated using ', '. 
+
 print("Hello, Sherin!")
 
 Output:
