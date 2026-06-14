@@ -183,8 +183,7 @@ student_grade.set_grade(100)
 print(student_grade.get_grade())  # الناتج: 100
 ```
 After using @property:
-
-
+👉 [see](./@property_decorator.py)
 
 ```src/buildin/i_singledispatch.py``` <br>
 ``` @lru_cache ```   ðŸ‘‰ ```src/buildin/j_lru_cache.py``` <br>
