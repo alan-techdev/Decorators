@@ -167,31 +167,30 @@ However, because Medium and Xlarge both have the value 2, the @unique decorator 
 Getters and Setters are used within the class to access or update the value of the object variable within that class. The '@property' decorator is used to define getters and setters for class attributes. 
 
 ```
-class Geek:
+class Student:
     def __init__(self):
-        self._name = 0
+        self._id = 0
 ​
     @property
-    def name(self):
+    def id(self):
       print("Getter Called")
-      return self._name
+      return self._id
 ​
     @name.setter
-    def name(self, name):
+    def id(self, id):
       print("Setter called")
-      self._name = name
+      self._id = id
 ​
-p = Geek()
-p.name = 10
+p = Student()
+p.id = 3
 ​
-print(p.name)
+print(p.id)
 ```
 Output:
 Setter called
 Getter Called
-10
+3
 
-In the above implementation, the Geek class has a private attribute '_name'. The program defines the getter method 'name' which allows the name to be retrieved using the dot notation. The @name.setter decorator is used to create the setter method for setting the '_name' value. The @property and @name.setter decorators define the "getter" and "setter" methods for class attributes, which can make it easier to work with class data.
 
 ```src/buildin/i_singledispatch.py``` <br>
 ``` @lru_cache ```   ðŸ‘‰ ```src/buildin/j_lru_cache.py``` <br>
