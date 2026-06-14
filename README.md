@@ -153,18 +153,47 @@ Enumeration or Enum is a set of unique names that have a unique value. They are 
 from enum import Enum, unique
 ​
 @unique
-class Days(Enum):
-    MONDAY = 1
-    TUESDAY = 2
-    WEDNESDAY = 3
-    THURSDAY = 2 # ValueError: duplicate values found in <enum 'Days'>: THURSDAY -> TUESDAY
+class Cloths(Enum):
+    Small = 1
+    Medium = 2
+    Large = 3
+    Xlarge= 2 # ValueError: duplicate values found in <enum 'Cloths'>: Medium -> Xlarge
 ```
-In the above implementation, an enum class 'Days' is defined using the class 'Enum'. The class has 4 members, MONDAY, TUESDAY, WEDNESDAY, and THURSDAY, with values of 1,2,3,2 respectively. 
+In the above implementation, an enum class 'Cloths' is defined using the class 'Enum'. The class has 4 members, Small, Medium, Large, and Xlarge, with values of 1,2,3,2 respectively. 
 
-However, because TUESDAY and THURSDAY both have the value 2, the @unique decorator raises a ValueError with the message "duplicate values found in <enum 'Days'>: THURSDAY -> TUESDAY". This error occurs because the @unique decorator ensures that the values of the enumeration members are unique, and in this case, they are not.
+However, because Medium and Xlarge both have the value 2, the @unique decorator raises a ValueError with the message "duplicate values found in <enum 'Cloths'>: Medium -> Xlarge". This error occurs because the @unique decorator ensures that the values of the enumeration members are unique, and in this case, they are not.
 
-``` @property ```   ðŸ‘‰ ```src/buildin/h_property.py``` <br>
-``` @singledispatch ```   ðŸ‘‰ ```src/buildin/i_singledispatch.py``` <br>
+7. @property
+Getters and Setters are used within the class to access or update the value of the object variable within that class. The '@property' decorator is used to define getters and setters for class attributes. 
+
+```
+class Geek:
+    def __init__(self):
+        self._name = 0
+​
+    @property
+    def name(self):
+      print("Getter Called")
+      return self._name
+​
+    @name.setter
+    def name(self, name):
+      print("Setter called")
+      self._name = name
+​
+p = Geek()
+p.name = 10
+​
+print(p.name)
+```
+Output:
+Setter called
+Getter Called
+10
+
+In the above implementation, the Geek class has a private attribute '_name'. The program defines the getter method 'name' which allows the name to be retrieved using the dot notation. The @name.setter decorator is used to create the setter method for setting the '_name' value. The @property and @name.setter decorators define the "getter" and "setter" methods for class attributes, which can make it easier to work with class data.
+
+```src/buildin/i_singledispatch.py``` <br>
 ``` @lru_cache ```   ðŸ‘‰ ```src/buildin/j_lru_cache.py``` <br>
 ``` @l@dataclasses  ```   ðŸ‘‰ ```src/buildin/k_dataclasses.py``` <br>
 
