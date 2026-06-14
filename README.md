@@ -185,6 +185,35 @@ print(student_grade.get_grade())  # الناتج: 100
 After using @property:
 👉 [see](./@property_decorator.py)
 
+#### Another example:
+```
+class Alphabet:
+    def __init__(self, value):
+        self._value = value
+
+    @property
+    def value(self):
+        print("Getting value")
+        return self._value
+
+    @value.setter
+    def value(self, value):
+        print("Setting value to " + value)
+        self._value = value
+
+    @value.deleter
+    def value(self):
+        print("Deleting value")
+        del self._value
+
+# Usage
+x = Alphabet("python")
+print(x.value)
+
+x.value = "programming language"
+del x.value
+```
+
 ```src/buildin/i_singledispatch.py``` <br>
 ``` @lru_cache ```   ðŸ‘‰ ```src/buildin/j_lru_cache.py``` <br>
 ``` @l@dataclasses  ```   ðŸ‘‰ ```src/buildin/k_dataclasses.py``` <br>
