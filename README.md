@@ -206,13 +206,17 @@ class Alphabet:
         print("Deleting value")
         del self._value
 
-# Usage
 x = Alphabet("python")
 print(x.value)
 
 x.value = "programming language"
 del x.value
 ```
+Output:
+Getting value
+python
+Setting value to programming language 
+Deleting value
 
 ```src/buildin/i_singledispatch.py``` <br>
 ``` @lru_cache ```   ðŸ‘‰ ```src/buildin/j_lru_cache.py``` <br>
