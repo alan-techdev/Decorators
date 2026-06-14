@@ -147,7 +147,22 @@ In the above implementation, the @typing.final decorator is used to indicate tha
 
 Using @typing.final can help prevent unintended changes to critical parts of your code and make it more robust by enforcing constraints on how it can be used.
 
-``` @enum.unique ```   ðŸ‘‰ ```src/buildin/f_enum_unique.py``` <br>
+### 6. @enum.unique
+Enumeration or Enum is a set of unique names that have a unique value. They are useful if we want to define a set of constants that have a specific meaning. The '@unique' decorator provided by enum module is used to ensure that enumeration members are unique.
+```
+from enum import Enum, unique
+​
+@unique
+class Days(Enum):
+    MONDAY = 1
+    TUESDAY = 2
+    WEDNESDAY = 3
+    THURSDAY = 2 # ValueError: duplicate values found in <enum 'Days'>: THURSDAY -> TUESDAY
+```
+In the above implementation, an enum class 'Days' is defined using the class 'Enum'. The class has 4 members, MONDAY, TUESDAY, WEDNESDAY, and THURSDAY, with values of 1,2,3,2 respectively. 
+
+However, because TUESDAY and THURSDAY both have the value 2, the @unique decorator raises a ValueError with the message "duplicate values found in <enum 'Days'>: THURSDAY -> TUESDAY". This error occurs because the @unique decorator ensures that the values of the enumeration members are unique, and in this case, they are not.
+
 ``` @property ```   ðŸ‘‰ ```src/buildin/h_property.py``` <br>
 ``` @singledispatch ```   ðŸ‘‰ ```src/buildin/i_singledispatch.py``` <br>
 ``` @lru_cache ```   ðŸ‘‰ ```src/buildin/j_lru_cache.py``` <br>
