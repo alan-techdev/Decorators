@@ -163,33 +163,27 @@ In the above implementation, an enum class 'Cloths' is defined using the class '
 
 However, because Medium and Xlarge both have the value 2, the @unique decorator raises a ValueError with the message "duplicate values found in <enum 'Cloths'>: Medium -> Xlarge". This error occurs because the @unique decorator ensures that the values of the enumeration members are unique, and in this case, they are not.
 
-7. @property
+### 7. @property
 Getters and Setters are used within the class to access or update the value of the object variable within that class. The '@property' decorator is used to define getters and setters for class attributes. 
 
+a code with out using @property:
 ```
 class Student:
     def __init__(self):
-        self._id = 0
-​
-    @property
-    def id(self):
-      print("Getter Called")
-      return self._id
-​
-    @name.setter
-    def id(self, id):
-      print("Setter called")
-      self._id = id
-​
-p = Student()
-p.id = 3
-​
-print(p.id)
+        self._grade = 0
+
+    def get_grade(self):
+        return self._grade
+
+    def set_grade(self, grade):
+        self._grade = grade
+
+student_grade = Student()
+student_grade.set_grade(100)
+print(student_grade.get_grade())  # الناتج: 100
 ```
-Output:
-Setter called
-Getter Called
-3
+After using @property:
+
 
 
 ```src/buildin/i_singledispatch.py``` <br>
