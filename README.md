@@ -121,8 +121,32 @@ Output:
 Hello, Sherin!
 Bye, Sherin!
 ```
+### 5. @typing.final
+The '@final'  decorator from the typing module is used to define the final class or method. Final classes cannot be inherited and in a similar way, final methods cannot be overridden.
+```
+import typing
 
-``` @typing.final ```   ðŸ‘‰ ```src/buildin/e_typing_final.py``` <br>
+class Base:
+    @typing.final
+    def done(self):
+        print("Base")
+
+class Child(Base):
+    def done(self):  # Error: Method "done" cannot override final method defined in class "Base" 
+        print("Child")
+
+@typing.final
+class Test:
+    pass
+
+class Other(Test):  # Error: Base class "Test" is marked final and cannot be subclassed
+    pass
+```
+
+In the above implementation, the @typing.final decorator is used to indicate that a method or class should not be overridden or subclassed, respectively. The Base class has a done() method marked as final using @typing.final. The Child is a subclass of Base that attempts to override the done() method, which raises an error when the code is executed. Similarly, the Test class is marked as final using @typing.final, indicating that it should not be subclassed. The Other class attempts to subclass Leaf, which also raises an error when the code is executed.
+
+Using @typing.final can help prevent unintended changes to critical parts of your code and make it more robust by enforcing constraints on how it can be used.
+
 ``` @enum.unique ```   ðŸ‘‰ ```src/buildin/f_enum_unique.py``` <br>
 ``` @property ```   ðŸ‘‰ ```src/buildin/h_property.py``` <br>
 ``` @singledispatch ```   ðŸ‘‰ ```src/buildin/i_singledispatch.py``` <br>
