@@ -268,11 +268,39 @@ def Test_func(arg):
 The main benefit is writing cleaner, more extensible code compared to using if/elif/else for type checking.
 
 Another example: see./@singledispatch_decorator.py
-### 9. lru_cash
+### 9. @lru_cash
 lru_cache() function from Python's functools module is used to cache the results of function calls. When the same function is called again with the same arguments, the stored result is returned instead of executing the function again.
 
+Example: The Fibonacci sequence contains many repeated calculations. Using lru_cache() stores previously computed values and avoids recalculating them.
+```
+from functools import lru_cache
 
-``` @lru_cache ```   ðŸ‘‰ ```src/buildin/j_lru_cache.py``` <br>
+@lru_cache(maxsize=128)
+def fibonacci(n):
+    if n < 2:
+        return n
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+
+# First call to the function will execute the computation and cache the result
+start_time = time.time()
+
+result = fibonacci(10)
+print(result)
+print("--- %s seconds ---" % (time.time() - start_time))
+start_time = time.time()
+
+# Subsequent calls to the function with the same input will return the cached result
+result = fibonacci(10)
+print(result)
+print("--- %s seconds ---" % (time.time() - start_time))
+```
+Output:
+55
+--- 0.0009987354278564453 seconds ---
+55
+--- 0.0 seconds ---
+
 ``` @l@dataclasses  ```   ðŸ‘‰ ```src/buildin/k_dataclasses.py``` <br>
 
 
