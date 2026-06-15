@@ -268,6 +268,8 @@ def Test_func(arg):
 The main benefit is writing cleaner, more extensible code compared to using if/elif/else for type checking.
 
 Another example: see./@singledispatch_decorator.py
+### 9. lru_cash
+lru_cache() function from Python's functools module is used to cache the results of function calls. When the same function is called again with the same arguments, the stored result is returned instead of executing the function again.
 
 
 ``` @lru_cache ```   ðŸ‘‰ ```src/buildin/j_lru_cache.py``` <br>
