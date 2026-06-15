@@ -166,7 +166,7 @@ However, because Medium and Xlarge both have the value 2, the @unique decorator 
 ### 7. @property
 Getters and Setters are used within the class to access or update the value of the object variable within that class. The '@property' decorator is used to define getters and setters for class attributes. 
 
-a code with out using @property:
+The code with out using @property:
 ```
 class Student:
     def __init__(self):
@@ -218,7 +218,58 @@ python
 Setting value to programming language 
 Deleting value
 
-```src/buildin/i_singledispatch.py``` <br>
+### 8. @Singledispatch
+Singledispatch generic function decorator transforms a function into a generic function, which can have different behaviours depending upon the type of its first argument. The decorated function acts as the default implementation. To add overloaded implementations to the function, use the register() attribute of the generic function. It is a decorator, taking a type parameter and decorating a function implementing the operation for that type. Where there is no registered implementation for a specific type, its method resolution order is used to find a more generic implementation. The original function decorated with @singledispatch is registered for the base object type, which means it is used if no better implementation is found.
+
+```
+from functools import singledispatch
+
+@singledispatch
+def Test_func(arg):
+    print("Function Call with single argument")
+
+@Test_func.register(int)
+def _(arg):
+    print("Function Called with an integer")
+
+@Test_func.register(str)
+def _(arg):
+    print("Function Called with a string")
+
+@Test_func.register(list)
+def _(arg):
+    print("Function Called with a list")
+
+geek_func(1) 
+geek_func([1, 2, 3]) 
+geek_func("Sherin") 
+geek_func({1: "Hez", 2: "Heyv"})
+```
+
+Output:
+Function Called with an integer
+Function Called with a list
+Function Called with a string
+Function Call with single argument
+
+The code with out using @singledispatch will be as bellow:
+
+```python
+def Test_func(arg):
+    if isinstance(arg, int):
+        print("Function Called with an integer")
+    elif isinstance(arg, list):
+        print("Function Called with a list")
+    elif isinstance(arg, str):
+        print("Function Called with a string")
+    else:
+        print("Function Call with single argument")
+```
+The main benefit is writing cleaner, more extensible code compared to using if/elif/else for type checking.
+
+Another example: see./@singledispatch_decorator.py
+
+
 ``` @lru_cache ```   ðŸ‘‰ ```src/buildin/j_lru_cache.py``` <br>
 ``` @l@dataclasses  ```   ðŸ‘‰ ```src/buildin/k_dataclasses.py``` <br>
 
