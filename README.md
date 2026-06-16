@@ -303,7 +303,9 @@ Output:
 For more example [see]./@lru_cache_decorator.py
 
 ### 10. @dataclass decorator 
-This decorator automatically adding generated special methods such as __init__() and __repr__() to user-defined classes.
+Dataclasses has been added as a utility tool for storing data. DataClasses provides a decorator and functions for automatically adding generated special methods such as __init__() , __repr__() and __eq__() to user-defined classes.
+
+Dataclasses are like normal classes in Python, but they have some basic functions like instantiation, comparing, and printing the classes already implemented.
 
 With out using dataclasse:
 ```
@@ -323,7 +325,7 @@ class Student:
 ```
 This is too long especially when we have a large number of classes, beside if we want to add another parameter such as phone number, we have to edit the three function manually.
 
-But when using dataclass the code will be as below:
+Here are the same example, implemented in Python DataClasses. 
 
 ```
 from dataclasses import dataclass
