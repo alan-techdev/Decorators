@@ -300,8 +300,10 @@ Output:
 --- 0.0009987354278564453 seconds ---
 55
 --- 0.0 seconds ---
+For more example see./@lru_cache_decorator.py
 
-``` @l@dataclasses  ```   ðŸ‘‰ ```src/buildin/k_dataclasses.py``` <br>
+### 10. @dataclass decorator 
+This decorator automatically adding generated special methods such as __init__() and __repr__() to user-defined classes
 
 
 ### Multiple decorators:
