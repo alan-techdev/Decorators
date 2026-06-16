@@ -1,4 +1,4 @@
-# What is decorator in python? 🤔
+8# What is decorator in python? 🤔
 It is a function that takes another function, it extends the behavior of functions and methods without changing their actual code. When you use a Python decorator, you wrap a function with another function, which takes the original function as an argument and returns its modified version. This technique provides a simple way to implement higher-order functions in Python, enhancing code reusability and readability.
 
 ### simple idea 💡:
@@ -300,10 +300,41 @@ Output:
 --- 0.0009987354278564453 seconds ---
 55
 --- 0.0 seconds ---
-For more example see./@lru_cache_decorator.py
+For more example [see]./@lru_cache_decorator.py
 
 ### 10. @dataclass decorator 
-This decorator automatically adding generated special methods such as __init__() and __repr__() to user-defined classes
+This decorator automatically adding generated special methods such as __init__() and __repr__() to user-defined classes.
+
+With out using dataclasse:
+```
+class Student:
+    def __init__(self, name, grade, age):
+        self.name = name
+        self.grade = grade
+        self.age = age
+
+    def __repr__(self):
+        return f"Student(name='{self.name}', grade={self.grade}, age={self.age})"
+
+    def __eq__(self, other):
+        if not isinstance(other, Student):
+            return False
+        return self.name == other.name and self.grade == other.grade and self.age == other.age
+```
+This is too long especially when we have a large number of classes, beside if we want to add another parameter such as phone number, we have to edit the three function manually.
+
+But when using dataclass the code will be as below:
+
+```
+from dataclasses import dataclass
+
+@dataclass
+class Student:
+    name: str
+    grade: int
+    age: int
+```
+@dataclass automatically generated __init__ , __repr__ and __eq__ which we defined above.
 
 
 ### Multiple decorators:
