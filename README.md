@@ -374,7 +374,7 @@ class Square(Rectangle):
 ### Multiple decorators:
 ðŸ”¶ï¸ They can be applied to a single function by stacking them before the function definition.
 The order of decorators impacts the final output since each decorator wraps the next, influencing the behavior of the decorated function.
-[see]./multiple_decorator_calls.py
+[see](./multiple_decorator_calls.py)
 
 ðŸ”¶ï¸ You can use multiple decorators on one function.
 
@@ -404,7 +404,7 @@ print(myfunction())
 
 ### Parametrized Decorators:
 Functions that require arguments can also be decorated, just make sure you pass the arguments to the wrapper function. 
-ðŸ‘‰  ```src/parametrized_decorator.py```
+ðŸ‘‰  [see](./parametrized_decorator.py)
 
 ### *args and **kwargs: ðŸ–‡
 Sometimes the decorator function has no control over the arguments passed from decorated function, to solve this problem, add (*args, **kwargs) to the wrapper function, this way the wrapper function can accept any number, and any type of arguments, and pass them to the decorated function.
