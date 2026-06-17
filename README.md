@@ -1,4 +1,4 @@
-8# What is decorator in python? 🤔
+٧8# What is decorator in python? 🤔
 It is a function that takes another function, it extends the behavior of functions and methods without changing their actual code. When you use a Python decorator, you wrap a function with another function, which takes the original function as an argument and returns its modified version. This technique provides a simple way to implement higher-order functions in Python, enhancing code reusability and readability.
 
 ### simple idea 💡:
@@ -374,7 +374,7 @@ class Square(Rectangle):
 ### Multiple decorators:
 ðŸ”¶ï¸ They can be applied to a single function by stacking them before the function definition.
 The order of decorators impacts the final output since each decorator wraps the next, influencing the behavior of the decorated function.
-ðŸ‘‰ ```src/multiple_decorator_calls.py```
+[see]./multiple_decorator_calls.py
 
 ðŸ”¶ï¸ You can use multiple decorators on one function.
 
