@@ -1,4 +1,4 @@
-٧8# What is decorator in python? 🤔
+### What is decorator in python? 🤔
 It is a function that takes another function, it extends the behavior of functions and methods without changing their actual code. When you use a Python decorator, you wrap a function with another function, which takes the original function as an argument and returns its modified version. This technique provides a simple way to implement higher-order functions in Python, enhancing code reusability and readability.
 
 ### simple idea 💡:
@@ -9,7 +9,8 @@ When you add a decorator, you didn't change the gift inside, but you add somethi
 ### Practical use cases for decorators:
 They are often used in scenarios such as logging, authentication and memorization, enforcing access control, caching results, and measuring execution time.
 
-* TODO : we need to find examples from open source libraries  like DJANGO, PYTEST or ??? ....
+* [timed-decorator](https://github.com/ancestor-mithril/timed-decorator). It measures the execution time of a given function
+
 
 ## How they works? 📌
 Define the decorator first, then apply it with @decorator_name above the function.
@@ -183,7 +184,7 @@ student_grade.set_grade(100)
 print(student_grade.get_grade())  # الناتج: 100
 ```
 After using @property:
-👉 [see](./@property_decorator.py)
+👉 [see](./src/property_decorator.py)
 
 #### Another example:
 ```
@@ -267,7 +268,8 @@ def Test_func(arg):
 ```
 The main benefit is writing cleaner, more extensible code compared to using if/elif/else for type checking.
 
-Another example: see./@singledispatch_decorator.py
+Another example: 👉[see](./src/singledispatch_decorator.py)
+
 ### 9. @lru_cash
 lru_cache() function from Python's functools module is used to cache the results of function calls. When the same function is called again with the same arguments, the stored result is returned instead of executing the function again.
 
@@ -300,7 +302,8 @@ Output:
 --- 0.0009987354278564453 seconds ---
 55
 --- 0.0 seconds ---
-For more example [see]./@lru_cache_decorator.py
+
+For more example 👉[see](./src/lru_cache_decorator.py)
 
 ### 10. @dataclass decorator 
 Dataclasses has been added as a utility tool for storing data. DataClasses provides a decorator and functions for automatically adding generated special methods such as __init__() , __repr__() and __eq__() to user-defined classes.
@@ -374,7 +377,7 @@ class Square(Rectangle):
 ### Multiple decorators:
 ðŸ”¶ï¸ They can be applied to a single function by stacking them before the function definition.
 The order of decorators impacts the final output since each decorator wraps the next, influencing the behavior of the decorated function.
-👉[see](./multiple_decorator_calls.py)
+👉[see](./src/multiple_decorator_calls.py)
 
 ðŸ”¶ï¸ You can use multiple decorators on one function.
 
@@ -404,7 +407,7 @@ print(myfunction())
 
 ### Parametrized Decorators:
 Functions that require arguments can also be decorated, just make sure you pass the arguments to the wrapper function. 
-👉[see](./parametrized_decorator.py)
+👉[see](./src/convert_to_upper_case_decorator.py)
 
 ### *args and **kwargs: ðŸ–‡
 Sometimes the decorator function has no control over the arguments passed from decorated function, to solve this problem, add (*args, **kwargs) to the wrapper function, this way the wrapper function can accept any number, and any type of arguments, and pass them to the decorated function.
