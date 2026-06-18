@@ -9,9 +9,11 @@ When you add a decorator, you didn't change the gift inside, but you add somethi
 ### Practical use cases for decorators:
 They are often used in scenarios such as logging, authentication and memorization, enforcing access control, caching results, and measuring execution time.
 
-* [timed-decorator](https://github.com/ancestor-mithril/timed-decorator){:target="_blank"}. It measures the execution time of a given function
+* <a href="https://github.com/ancestor-mithril/timed-decorator" target="_blank">timed-decorator</a><br>
+ It measures the execution time of a given function<br>
 
-* [diverse custom decorators to practice](https://github.com/GrgoMariani/Python-Decorators){:target="_blank"}. A list of helpful self-made Python decorators
+* <a href="https://github.com/GrgoMariani/Python-Decorators" target="_blank">diverse custom decorators to practice</a><br>
+A list of helpful self-made Python decorators<br>
 
 ## How they works? 📌
 Define the decorator first, then apply it with @decorator_name above the function.
