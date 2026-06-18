@@ -1,7 +1,8 @@
 # This example caches the vowel count for previously processed strings.
 
 from functools import lru_cache
-​
+
+​# Least-recently-used cache decorator.
 @lru_cache(maxsize=100)
 def count_vowels(s):
     s = s.lower()

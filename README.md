@@ -184,7 +184,7 @@ student_grade.set_grade(100)
 print(student_grade.get_grade())  # الناتج: 100
 ```
 After using @property:
-👉 [see](./src/property_decorator.py)
+👉 [property_decorator](./src/property_decorator.py)
 
 #### Another example:
 ```
@@ -268,7 +268,7 @@ def Test_func(arg):
 ```
 The main benefit is writing cleaner, more extensible code compared to using if/elif/else for type checking.
 
-Another example: 👉[see](./src/singledispatch_decorator.py)
+Another example: 👉[singledispatch_decorator](./src/singledispatch_decorator.py)
 
 ### 9. @lru_cash
 lru_cache() function from Python's functools module is used to cache the results of function calls. When the same function is called again with the same arguments, the stored result is returned instead of executing the function again.
@@ -303,7 +303,7 @@ Output:
 55
 --- 0.0 seconds ---
 
-For more example 👉[see](./src/lru_cache_decorator.py)
+For more example 👉[cache_decorator](./src/cache_decorator.py)
 
 ### 10. @dataclass decorator 
 Dataclasses has been added as a utility tool for storing data. DataClasses provides a decorator and functions for automatically adding generated special methods such as __init__() , __repr__() and __eq__() to user-defined classes.
@@ -377,7 +377,7 @@ class Square(Rectangle):
 ### Multiple decorators:
 ðŸ”¶ï¸ They can be applied to a single function by stacking them before the function definition.
 The order of decorators impacts the final output since each decorator wraps the next, influencing the behavior of the decorated function.
-👉[see](./src/multiple_decorator_calls.py)
+👉[multiple_decorator_calls](./src/multiple_decorator_calls.py)
 
 ðŸ”¶ï¸ You can use multiple decorators on one function.
 
@@ -407,7 +407,7 @@ print(myfunction())
 
 ### Parametrized Decorators:
 Functions that require arguments can also be decorated, just make sure you pass the arguments to the wrapper function. 
-👉[see](./src/convert_to_upper_case_decorator.py)
+👉[convert_to_upper_case_decorator](./src/convert_to_upper_case_decorator.py)
 
 ### *args and **kwargs: ðŸ–‡
 Sometimes the decorator function has no control over the arguments passed from decorated function, to solve this problem, add (*args, **kwargs) to the wrapper function, this way the wrapper function can accept any number, and any type of arguments, and pass them to the decorated function.
@@ -488,4 +488,4 @@ print(myfunction.__name__)
 ```
 
 To fix this, Python has a built-in function ðŸ¥³ called ```functools.wraps ``` that can be used to preserve the original function's name and docstring.<br> 
-👉 [see](./src/metadata_fix.py)
+👉 [metadata_fix](./src/metadata_fix.py)
